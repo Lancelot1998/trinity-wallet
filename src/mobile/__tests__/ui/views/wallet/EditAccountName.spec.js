@@ -17,6 +17,14 @@ jest.mock('bugsnag-react-native', () => ({
     Configuration: jest.fn(),
     Client: jest.fn(() => ({ leaveBreadcrumb: jest.fn() })),
 }));
+jest.mock('react-native-keychain', () => ({
+    setGenericPassword: jest.fn(),
+    getGenericPassword: jest.fn(),
+    resetGenericPassword: jest.fn(),
+    getInternetCredentials: jest.fn(),
+    resetInternetCredentials: jest.fn(),
+    setInternetCredentials: jest.fn(),
+}));
 
 const getProps = (overrides) =>
     assign(
